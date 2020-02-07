@@ -34,8 +34,8 @@ namespace QuizNight.Pages.Quizes
         public QuizesModel(IConfiguration config,IQuizData quizData,IQuizAnswer quizAnswer,IQuizCategories quizCategories)
         {
             this.config = config;
-            this._quizData = quizData;
-            this._quizAnswer = quizAnswer;
+            _quizData = quizData;
+            _quizAnswer = quizAnswer;
             this.quizCategories = quizCategories;
             QuizAnswersList = new List<QuizAnswers>();
             CatList = new List<CategoryClass>();
