@@ -30,7 +30,7 @@ namespace QuizNight
             //{
             //    option.UseSqlServer(Configuration.GetConnectionString("QuizNightDb"));
             //});
-            services.AddSingleton<IQuizData, InMemoryQuizes>();
+            //services.AddSingleton<IQuizData, InMemoryQuizes>();
             services.AddSingleton<IQuizAnswer, InMemoryAnswers>();
             services.AddSingleton<IQuizCategories, InMemoryCategories>();
 

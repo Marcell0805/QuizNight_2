@@ -10,8 +10,4 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.14" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Quiz.Core\Quiz.Core.csproj" />
-  </ItemGroup>
-
 </Project>

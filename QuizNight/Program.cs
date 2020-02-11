@@ -10,9 +10,9 @@ namespace QuizNight
     {
         public static void Main(string[] args)
         {
-            IRepository<movieQuizQuiz> s = new MovieRepository();
+            //IRepository<movieQuizQuiz> s = new MovieRepository();
 
-            var all = s.GetAll.ToList();
+            //var all = s.GetAll.ToList();
             CreateWebHostBuilder(args).Build().Run();
         }
 

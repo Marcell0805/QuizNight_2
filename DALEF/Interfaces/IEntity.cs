@@ -6,6 +6,6 @@ namespace Quiz.Data.Interfaces
 {
     public interface IEntity
     {        
-        string Id { get; set; }        
+        int Id { get; set; }        
     }
 }

@@ -4,8 +4,4 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Quiz.Data\Quiz.Data.csproj" />
-  </ItemGroup>
-
 </Project>
