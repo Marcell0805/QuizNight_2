@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Quiz.Data
 {
-    public interface IRepository<T> where T:IEntity
+    public interface IRepository<T> where T:IEntity 
     {
         IEnumerable<T> List { get; }
         string Add(T entity);
