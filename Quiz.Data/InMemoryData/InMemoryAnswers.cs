@@ -4,17 +4,12 @@ using Quiz.Core;
 
 namespace Quiz.Data
 {
-    public interface IQuizAnswer
-    {
-        IEnumerable<QuizAnswers> GetAll();
-        IEnumerable<QuizAnswers> FetchById(int QuestionId);
-
-        int GetCount(int StartQ,int EndQ);
-    }
-
-    public class InMemoryAnswers : IQuizAnswer
+    public class InMemoryAnswers : IRepository<QuizAnswers>
     {
         public List<QuizAnswers> QuizAnswerses;
+
+        public IEnumerable<QuizAnswers> List => throw new System.NotImplementedException();
+
         public InMemoryAnswers()
         {
             QuizAnswerses= new List<QuizAnswers>()
@@ -32,13 +27,13 @@ namespace Quiz.Data
                  new QuizAnswers{QuestionId = 10,QuizAnsId = 10,Ans1 = "Extra drum music",Ans2 = "Electic disco music",Ans3 = "Electro dance music",Ans4 = "Electro dance mix",CorrectAns = 2}
             };
         }
-        public IEnumerable<QuizAnswers> GetAll()
-        {
-            return from r in QuizAnswerses
-                orderby r.QuestionId
-                select r;
+        //public IEnumerable<QuizAnswers> GetAll()
+        //{
+        //    return from r in QuizAnswerses
+        //        orderby r.QuestionId
+        //        select r;
 
-        }
+        //}
         public IEnumerable<QuizAnswers> FetchById(int QuestionId)
         {
             return from r in QuizAnswerses
@@ -52,6 +47,31 @@ namespace Quiz.Data
                     where r.QuizAnsId>= StartQ && r.QuizAnsId <= EndQ
                     orderby r.QuestionId
                     select r).Count();
+        }
+
+        public string Add(QuizAnswers entity)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Delete(QuizAnswers entity)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Update(QuizAnswers entity)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        QuizAnswers IRepository<QuizAnswers>.GetAll()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public QuizAnswers FindById(string Id)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

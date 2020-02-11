@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Quiz.Data.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleRepositoryFrameWork.Interfaces
+namespace Quiz.Data
 {
     public interface IRepository<T> where T:IEntity
     {
@@ -10,6 +11,8 @@ namespace SimpleRepositoryFrameWork.Interfaces
         string Add(T entity);
         void Delete(T entity);
         void Update(T entity);
+        T GetAll();
         T FindById(string Id);
+        int GetCount(int startNum, int endNum);
     }
 }

@@ -4,10 +4,6 @@ using Quiz.Core;
 
 namespace Quiz.Data
 {
-    public interface IQuizCategories
-    {
-        IEnumerable<CategoryClass> GetAll();
-    }
     public class InMemoryCategories : IQuizCategories
     {
         public List<CategoryClass> categoryClasses;

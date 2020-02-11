@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SimpleRepositoryFrameWork.Interfaces
+namespace Quiz.Data.Interfaces
 {
     public interface IEntity
     {        
