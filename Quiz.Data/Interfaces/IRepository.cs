@@ -11,7 +11,7 @@ namespace Quiz.Data
         string Add(T entity);
         void Delete(T entity);
         void Update(T entity);
-        T GetAll();
+        IEnumerable<T> GetAll { get; }
         T FindById(string Id);
         int GetCount(int startNum, int endNum);
     }

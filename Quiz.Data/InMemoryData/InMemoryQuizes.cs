@@ -14,7 +14,7 @@ namespace Quiz.Data
         private List<QuizAnswers> quizesAnswers;
         public  InMemoryQuizes()
         {
-            ReadXML();
+           
             quizes = new List<QuizClass>()
             {
                 new QuizClass{QuestionId = 1,CatId=1,Question = "What is the name of the first assasin in the assasins franchise?",QuestionAnswer = 2},
@@ -44,60 +44,7 @@ namespace Quiz.Data
                  new QuizAnswers{QuizAnsId = 10,QuestionId = 10,Ans1 = "Extra drum music",Ans2 = "Electric disco music",Ans3 = "Electro dance music",Ans4 = "Electro dance mix",CorrectAns = 2}
             };
         }
-        public void ReadXML()
-        {
-            DataSet data = new DataSet();
-            data.ReadXml(@"\QuizNight\Quiz.Data\data.xml");
-            //XPathDocument document = new XPathDocument(@"F:\QuizNight\Quiz.Data\data.xml.xml");
-            //XmlDataDocument datadoc = new XmlDataDocument();
-            //Infer the DataSet schema from the XML data and load the XML Data
-            //datadoc.DataSet.ReadXml(sr, XmlReadMode.InferSchema);
-            //DisplayTables(datadoc.DataSet);
-            //DataSet mm = datadoc.DataSet;
-            //Navigate Dataset;
-            //XmlReaderSettings settings = new XmlReaderSettings();
-            //settings.DtdProcessing = DtdProcessing.Parse;
-            //XmlReader reader = XmlReader.Create(@"\QuizNight\Quiz.Data\data.xml", settings);
-
-            //reader.MoveToContent();
-            //// Parse the file and display each of the nodes.
-            //while (reader.Read())
-            //{
-            //    switch (reader.NodeType)
-            //    {
-            //        case XmlNodeType.Element:
-            //            System.Diagnostics.Debug.WriteLine("<{0}>", reader.Name);
-            //            Console.Write("<{0}>", reader.Name);
-            //            break;
-            //        case XmlNodeType.Text:
-            //            System.Diagnostics.Debug.WriteLine(reader.Value);
-            //            break;
-            //        case XmlNodeType.CDATA:
-            //            System.Diagnostics.Debug.WriteLine("<![CDATA[{0}]]>", reader.Value);
-            //            break;
-            //        case XmlNodeType.ProcessingInstruction:
-            //            System.Diagnostics.Debug.WriteLine("<?{0} {1}?>", reader.Name, reader.Value);
-            //            break;
-            //        case XmlNodeType.Comment:
-            //            System.Diagnostics.Debug.WriteLine("<!--{0}-->", reader.Value);
-            //            break;
-            //        case XmlNodeType.XmlDeclaration:
-            //            System.Diagnostics.Debug.WriteLine("<?xml version='1.0'?>");
-            //            break;
-            //        case XmlNodeType.Document:
-            //            break;
-            //        case XmlNodeType.DocumentType:
-            //            System.Diagnostics.Debug.WriteLine("<!DOCTYPE {0} [{1}]", reader.Name, reader.Value);
-            //            break;
-            //        case XmlNodeType.EntityReference:
-            //            System.Diagnostics.Debug.WriteLine(reader.Name);
-            //            break;
-            //        case XmlNodeType.EndElement:
-            //            System.Diagnostics.Debug.WriteLine("</{0}>", reader.Name);
-            //            break;
-            //    }
-            //}
-        }
+        
         public IEnumerable<QuizClass> GetAll()
         {
             return from r in quizes

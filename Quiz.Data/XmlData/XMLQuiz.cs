@@ -1,13 +1,10 @@
-﻿using System;
+﻿using Quiz.Data.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Quiz.Core
+namespace Quiz.Data
 {
-    public class XMLQuiz
-    {
-
-    }
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
     public partial class movieQuiz
@@ -32,7 +29,7 @@ namespace Quiz.Core
 
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class movieQuizQuiz
+    public partial class movieQuizQuiz : IEntity
     {
 
         private movieQuizQuizQuestion[] questionsField;

@@ -10,6 +10,5 @@ namespace Quiz.Core
         public string Question { get; set; }
         public int QuestionAnswer { get; set; }
         public int CatId { get; set; }
-        public DefaultQuizes quizes{get;set;}
     }
 }

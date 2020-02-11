@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DALEF\DALEF.csproj" />
     <ProjectReference Include="..\Quiz.Data\Quiz.Data.csproj" />
   </ItemGroup>
 

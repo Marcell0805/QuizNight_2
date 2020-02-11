@@ -26,10 +26,10 @@ namespace QuizNight
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<QuizNightDbContext>(option =>
-            {
-                option.UseSqlServer(Configuration.GetConnectionString("QuizNightDb"));
-            });
+            //services.AddDbContextPool<QuizNightDbContext>(option =>
+            //{
+            //    option.UseSqlServer(Configuration.GetConnectionString("QuizNightDb"));
+            //});
             services.AddSingleton<IQuizData, InMemoryQuizes>();
             services.AddSingleton<IQuizAnswer, InMemoryAnswers>();
             services.AddSingleton<IQuizCategories, InMemoryCategories>();
