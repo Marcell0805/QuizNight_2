@@ -1,4 +1,5 @@
-﻿using Quiz.Data.Interfaces;
+﻿
+using Quiz.Data.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -34,7 +35,7 @@ namespace Quiz.Data
 
         private movieQuizQuizQuestion[] questionsField;
 
-        private string idField;
+        private int idField;
 
         private string nameField;
 
@@ -54,7 +55,7 @@ namespace Quiz.Data
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Id
+        public int Id
         {
             get
             {
@@ -88,7 +89,7 @@ namespace Quiz.Data
 
         private movieQuizQuizQuestionAnswer[] answersField;
 
-        private string idField;
+        private int idField;
 
         private string textField;
 
@@ -108,7 +109,7 @@ namespace Quiz.Data
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string id
+        public int id
         {
             get
             {

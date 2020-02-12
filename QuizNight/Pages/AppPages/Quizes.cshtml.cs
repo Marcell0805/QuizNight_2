@@ -58,7 +58,7 @@ namespace QuizNight.Pages.Quizes
                 Quizes = _quizData.FetchByCatId(CatSelectedId);
                 foreach (var item in Quizes)
                 {
-                    QuizAnswers = _quizAnswer.FetchById(item.QuestionId);
+                    QuizAnswers = _quizAnswer.FetchById(item.Id);
                     QuizAnswersList.AddRange(QuizAnswers);
                 }
 
@@ -79,7 +79,7 @@ namespace QuizNight.Pages.Quizes
                     Quizes = _quizData.FetchByCatId(CatIdValue);
                     foreach (var item in Quizes)
                     {
-                        QuizAnswers = _quizAnswer.FetchById(item.QuestionId);
+                        QuizAnswers = _quizAnswer.FetchById(item.Id);
                         QuizAnswersList.AddRange(QuizAnswers);
                     }
                 }
@@ -91,11 +91,11 @@ namespace QuizNight.Pages.Quizes
         public int GetCatList(int questId)
         {
             return (from q in Quizes
-                join cat in categoryClasses on q.CatId equals cat.CatId
-                    join a in QuizAnswers on q.QuestionId equals a.QuestionId
+                join cat in categoryClasses on q.CatId equals cat.Id
+                    join a in QuizAnswers on q.Id equals a.Id
                     where a.QuestionId>= questId
                 orderby cat.CatergoryDesc
-                select cat.CatId).FirstOrDefault();
+                select cat.Id).FirstOrDefault();
         }
     }
 }

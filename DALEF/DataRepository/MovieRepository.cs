@@ -1,4 +1,4 @@
-﻿using Quiz.Core;
+﻿
 using Quiz.Data;
 using System;
 using System.Collections.Generic;
@@ -12,14 +12,14 @@ namespace DALEF.DataRepository
         //todo move to config file
         private const string fileLocation = @"C:\vsprojects\xmlTest\xmlRepository\data.xml";
 
-        public IEnumerable<movieQuizQuiz> List
-        {
-            get
-            {
-                var movieQuiz = xmlToClass.FromXml<movieQuiz>(fileLocation);
-                return movieQuiz.quiz;
-            }
-        }
+        //public IEnumerable<movieQuizQuiz> List
+        //{
+        //    get
+        //    {
+        //        var movieQuiz = xmlToClass.FromXml<movieQuiz>(fileLocation);
+        //        return movieQuiz.quiz;
+        //    }
+        //}
 
         public IEnumerable<movieQuizQuiz> GetAll
         {
@@ -30,9 +30,10 @@ namespace DALEF.DataRepository
             }
         }
 
-        public string Add(movieQuizQuiz entity)
+        public int Add(movieQuizQuiz entity)
         {
-            entity.Id = Guid.NewGuid().ToString();
+            entity.Id = 1;
+            //entity.Id = Guid.NewGuid().ToString();
             var movieQuiz = xmlToClass.FromXml<movieQuiz>(fileLocation);
 
             var quizs = movieQuiz.quiz.ToList();
@@ -65,13 +66,23 @@ namespace DALEF.DataRepository
             xmlToClass.ToXMLFile(movieQuiz);
         }
 
-        public movieQuizQuiz FindById(string Id)
+        public movieQuizQuiz FindById(int Id)
         {
             var movieQuiz = xmlToClass.FromXml<movieQuiz>(fileLocation);
             return movieQuiz.quiz.FirstOrDefault(t => t.Id == Id);
         }
 
         public int GetCount(int startNum, int endNum)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<movieQuizQuiz> IRepository<movieQuizQuiz>.GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Save()
         {
             throw new NotImplementedException();
         }

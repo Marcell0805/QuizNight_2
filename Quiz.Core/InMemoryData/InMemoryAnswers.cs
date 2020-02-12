@@ -66,6 +66,21 @@ namespace Quiz.Core
                    select r;
         }
 
+        public void Save()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        int IRepository<QuizAnswers>.Add(QuizAnswers entity)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        QuizAnswers IRepository<QuizAnswers>.FindById(int Id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         //public IEnumerable<QuizAnswers> GetAll()
         //{
         //    return from r in QuizAnswerses

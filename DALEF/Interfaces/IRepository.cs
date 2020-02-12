@@ -7,11 +7,12 @@ namespace Quiz.Data
 {
     public interface IRepository<T> where T:IEntity 
     {
-        string Add(T entity);
+        int Add(T entity);
         void Delete(T entity);
         void Update(T entity);
         IEnumerable<T> GetAll();
-        IEnumerable<T> FindById(int Id);
+        T FindById(int Id);
+        void Save();
         int GetCount(int startNum, int endNum);
     }
 }
