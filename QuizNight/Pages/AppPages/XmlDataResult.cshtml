@@ -7,30 +7,31 @@
 <h2>XmlDataResult</h2>
 <div class="form-group">
     <div class="input-group" style="align-content:center">
-        @*@foreach (var cat in Model.QuizAnswersList)
+        @foreach (var cat in Model.movieQuizList)
         {
         <table>
-            <tr>ID
-                <td>
-                    @cat.Id
-                </td>
-            </tr>
-
-            <tr>Name
-                <td>
-                    @cat.Name
-                </td>
-            </tr>
 
             <tr>Question
-                <td>
-                    @cat.Question
-                </td>
+                <br />
+                    @foreach (var item in cat.questions)
+                    {
+                        <tr>
+                            @item.Text
+                        </tr>
+                        <br />
+                        foreach (var answer in  @item.answers)
+                        {
+                            <tr>
+                                @answer.Text
+                                <br />
+                            </tr>
+                        }
+                    }
             </tr>
         </table>
             
 
-        }*@
+        }
 
 
     </div>

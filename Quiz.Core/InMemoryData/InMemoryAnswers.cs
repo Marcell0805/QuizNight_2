@@ -59,11 +59,12 @@ namespace Quiz.Core
                     select r).Count();
         }
 
-        public IEnumerable<QuizAnswers> FindById(int Id)
+        public QuizAnswers FindById(int Id)
         {
-            return from r in QuizAnswerses
-                   where r.Id == Id
-                   select r;
+            var quizAns=QuizAnswerses.FirstOrDefault(t => t.Id == Id);
+
+            return quizAns;
+
         }
 
         public void Save()
@@ -76,25 +77,6 @@ namespace Quiz.Core
             throw new System.NotImplementedException();
         }
 
-        QuizAnswers IRepository<QuizAnswers>.FindById(int Id)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        //public IEnumerable<QuizAnswers> GetAll()
-        //{
-        //    return from r in QuizAnswerses
-        //           orderby r.QuestionId
-        //           select r;
-
-        //}
-        //public IEnumerable<QuizAnswers> FetchById(int QuestionId)
-        //{
-        //    return from r in QuizAnswerses
-        //           where r.QuizAnsId == QuestionId
-        //           select r;
-
-        //}
         //public int GetCount(int StartQ, int EndQ)
         //{
         //    return (from r in QuizAnswerses

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DALEF.DataRepository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -10,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Quiz.Core;
 using Quiz.Data;
 
 namespace QuizNight
@@ -30,9 +32,10 @@ namespace QuizNight
             //{
             //    option.UseSqlServer(Configuration.GetConnectionString("QuizNightDb"));
             //});
-            //services.AddSingleton<IQuizData, InMemoryQuizes>();
-            services.AddSingleton<IQuizAnswer, InMemoryAnswers>();
-            services.AddSingleton<IQuizCategories, InMemoryCategories>();
+            services.AddSingleton<IRepository<QuizClass>, InMemoryQuizes>();
+            services.AddSingleton<IRepository<QuizAnswers>, InMemoryAnswers>();
+            services.AddSingleton<IRepository<CategoryClass>, InMemoryCategories>();
+            services.AddSingleton<IRepository<movieQuizQuiz>, MovieRepository>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {

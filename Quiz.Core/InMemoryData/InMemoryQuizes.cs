@@ -55,6 +55,12 @@ namespace Quiz.Data
             throw new NotImplementedException();
         }
 
+        public QuizClass FindById(int Id)
+        {
+            var quizClass = quizes.FirstOrDefault(t => t.Id == Id);
+            return quizClass;
+        }
+
         public IEnumerable<QuizClass> GetAll()
         {
             return from r in quizes
@@ -78,14 +84,6 @@ namespace Quiz.Data
             throw new NotImplementedException();
         }
 
-        QuizClass IRepository<QuizClass>.FindById(int Id)
-        {
-            throw new NotImplementedException();
-            //return from r in quizes
-            //       where r.Id == Id
-            //       orderby r.Id
-            //       select r;
-        }
 
         //public IEnumerable<QuizClass> GetAll()
         //{

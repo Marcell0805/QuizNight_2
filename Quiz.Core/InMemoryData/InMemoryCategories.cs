@@ -27,12 +27,10 @@ namespace Quiz.Data
             throw new System.NotImplementedException();
         }
 
-        public IEnumerable<CategoryClass> FindById(int Id)
+        public CategoryClass FindById(int Id)
         {
-            return from r in categoryClasses
-                   where r.Id==Id
-                   orderby r.CatergoryDesc
-                   select r;
+            var quizCat = categoryClasses.FirstOrDefault(t => t.Id == Id);
+            return quizCat;
         }
 
         public IEnumerable<CategoryClass> GetAll()
@@ -62,10 +60,6 @@ namespace Quiz.Data
             throw new System.NotImplementedException();
         }
 
-        CategoryClass IRepository<CategoryClass>.FindById(int Id)
-        {
-            throw new System.NotImplementedException();
-        }
 
         //IEnumerable<CategoryClass> IQuizCategories.GetAll()
         //{

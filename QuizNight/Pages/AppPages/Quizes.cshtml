@@ -11,9 +11,9 @@
             @foreach (var cat in Model.categoryClasses)
             {
 
-                <button value=" @Model.CatList[Model.ListCount].CatId"
+                <button value=" @Model.CatList[Model.ListCount].Id"
                         style="float:initial;width:200px; padding: 5px 5px 5px; margin: 15px 15px 15px 0px " class="btn btn-primary btn-lg"
-                        name="CatIdValue">
+                        name="Id">
                     @Model.CatList[Model.ListCount].CatergoryDesc
                 </button>
                 Model.ListCount++;
@@ -59,25 +59,25 @@
                             <td>
                                 <button value="@Model.QuizAnswersList[Model.ListCount].QuestionId;1"
                                         name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
-                                    @Model.QuizAnswersList[Model.ListCount].Ans1
+                                    @Model.QuizAnswersList[Model.ListCount].Answer1
                                 </button>
                             </td>
                             <td>
                                 <button value="@Model.QuizAnswersList[Model.ListCount].QuestionId;2"
                                         name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
-                                    @Model.QuizAnswersList[Model.ListCount].Ans2
+                                    @Model.QuizAnswersList[Model.ListCount].Answer2
                                 </button>
                             </td>
                             <td>
                                 <button value="@Model.QuizAnswersList[Model.ListCount].QuestionId;3"
                                         name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
-                                    @Model.QuizAnswersList[Model.ListCount].Ans3
+                                    @Model.QuizAnswersList[Model.ListCount].Answer3
                                 </button>
                             </td>
                             <td>
                                 <button value="@Model.QuizAnswersList[Model.ListCount].QuestionId;4"
                                         name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
-                                    @Model.QuizAnswersList[Model.ListCount].Ans4
+                                    @Model.QuizAnswersList[Model.ListCount].Answer4
                                 </button>
                             </td>
                         </tr>
