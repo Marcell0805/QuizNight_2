@@ -34,86 +34,95 @@
 <form method="post" style="background-color:#769efe;width:1200px">
     <div class="form-group">
         <div class="input-group">
-            @if (Model.Quizes != null)
+            @if (Model.Quizes != null ||Model.movieQuizList!=null)
             {
                 <h2>Questions</h2>
                 <table class="table table" style="background-color:#cdf9ff;width:1200px">
-                    @if (Model.ListCount > 0)
+                    @if (Model.Quizes != null)
                     {
-                        Model.ListCount = 0;
-                        foreach (var id in Model.Quizes)
+
+                        @if (Model.ListCount > 0)
                         {
-                            Model.CatSelectedId = id.CatId;
-                            break;
+                            Model.ListCount = 0;
+                            foreach (var id in Model.Quizes)
+                            {
+                                Model.CatSelectedId = id.CatId;
+                                break;
+                            }
+                        }
+
+                        @foreach (var quizes in Model.Quizes)
+                        {
+                            <tr>
+                                <td>
+                                    @quizes.Question
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button value="@Model.QuizAnswersList[Model.ListCount].QuestionId;1"
+                                            name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
+                                        @Model.QuizAnswersList[Model.ListCount].Answer1
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button value="@Model.QuizAnswersList[Model.ListCount].QuestionId;2"
+                                            name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
+                                        @Model.QuizAnswersList[Model.ListCount].Answer2
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button value="@Model.QuizAnswersList[Model.ListCount].QuestionId;3"
+                                            name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
+                                        @Model.QuizAnswersList[Model.ListCount].Answer3
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <button value="@Model.QuizAnswersList[Model.ListCount].QuestionId;4"
+                                            name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
+                                        @Model.QuizAnswersList[Model.ListCount].Answer4
+                                    </button>
+                                </td>
+                            </tr>
+                            Model.ListCount++;
                         }
                     }
-
-                    @foreach (var quizes in Model.Quizes)
+                    else
                     {
-                        <tr>
-                            <td>
-                                @quizes.Question
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button value="@Model.QuizAnswersList[Model.ListCount].QuestionId;1"
-                                        name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
-                                    @Model.QuizAnswersList[Model.ListCount].Answer1
-                                </button>
-                            </td>
-                            <td>
-                                <button value="@Model.QuizAnswersList[Model.ListCount].QuestionId;2"
-                                        name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
-                                    @Model.QuizAnswersList[Model.ListCount].Answer2
-                                </button>
-                            </td>
-                            <td>
-                                <button value="@Model.QuizAnswersList[Model.ListCount].QuestionId;3"
-                                        name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
-                                    @Model.QuizAnswersList[Model.ListCount].Answer3
-                                </button>
-                            </td>
-                            <td>
-                                <button value="@Model.QuizAnswersList[Model.ListCount].QuestionId;4"
-                                        name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
-                                    @Model.QuizAnswersList[Model.ListCount].Answer4
-                                </button>
-                            </td>
-                        </tr>
-                        Model.ListCount++;
+                        @foreach (var cat in Model.movieQuizList)
+                        {
+                            @foreach (var item in cat.questions)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.Text
+                                    </td>
+                                </tr>
+                                foreach (var answer in @item.answers)
+                                {
+                                    <tr>
+                                        <td>
+                                            <button value="@answer.id"
+                                                    name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
+                                                @answer.Text
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            }
+                        }
                     }
                 </table>
             }
-            else if(Model.movieQuizList!=null)
-            {
-                @foreach (var cat in Model.movieQuizList)
-                {
-                    <table>
-
-                        <tr>
-                            Question
-                            <br />
-                            @foreach (var item in cat.questions)
-                            {
-                            <tr>
-                                @item.Text
-                            </tr>
-                            <br />
-                            foreach (var answer in @item.answers)
-                            {
-                                <tr>
-                                    @answer.Text
-                                    <br />
-                                </tr>
-                            }
-                        }
-                        </table>
-                    }
-            }
 
 
-            </div>
+        </div>
     </div>
 </form>
 

@@ -10,7 +10,7 @@ namespace DALEF.DataRepository
     public class MovieRepository : IRepository<movieQuizQuiz>
     {
         //todo move to config file
-        private const string fileLocation = @"C:\vsprojects\xmlTest\xmlRepository\data.xml";
+        private const string fileLocation = @"..\DALEF\data.xml";
         public int Add(movieQuizQuiz entity)
         {
             entity.Id = 1;

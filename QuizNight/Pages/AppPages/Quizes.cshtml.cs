@@ -50,11 +50,10 @@ namespace QuizNight.Pages.Quizes
         public void OnPost(int Id, string answer="")
         {
             categoryClasses = RepositoryCatagory.GetAll();
+            Quizes = Repository.GetAll().ToList();
+            QuizAnswers = RepositoryAnswers.GetAll().ToList();
             if (!string.IsNullOrEmpty(answer))
-            {
-                Quizes = Repository.GetAll().ToList();
-                categoryClasses = RepositoryCatagory.GetAll();
-                QuizAnswers = RepositoryAnswers.GetAll().ToList();
+            {                
                 String[] Answer = answer.Split(";");
                 CatSelectedId = GetCatList(int.Parse(Answer[1]));
                 var a = Repository.FindById(CatSelectedId);
@@ -65,20 +64,13 @@ namespace QuizNight.Pages.Quizes
                         AnswerCount++;
                     }
                 }
+                SetQuizList(Id);
             }
             else
             {
                 if (Id==1|| Id == 2)
                 {
-                    var QuizId = Repository.FindById(Id);
-                    Quizes = Repository.GetAll().ToList();
-                    Quizes = Quizes.Where(p=>p.CatId==Id).ToList();
-                    foreach (var item in Quizes)
-                    {
-                        QuizAnswers = RepositoryAnswers.GetAll().ToList();
-                        var s = QuizAnswers.Where(p=>p.QuestionId== item.Id);
-                        QuizAnswersList.AddRange(s);
-                    }
+                    SetQuizList(Id);
                 }
                 else
                 {
@@ -88,6 +80,19 @@ namespace QuizNight.Pages.Quizes
             CatList.AddRange(categoryClasses);
 
         }
+
+        private void SetQuizList(int Id)
+        {
+            var QuizId = Repository.FindById(Id);
+            Quizes = Quizes.Where(p => p.CatId == Id).ToList();
+            foreach (var item in Quizes)
+            {
+                QuizAnswers = RepositoryAnswers.GetAll().ToList();
+                var s = QuizAnswers.Where(p => p.QuestionId == item.Id);
+                QuizAnswersList.AddRange(s);
+            }
+        }
+
         public int GetCatList(int questId)
         {
             return (from q in Quizes
