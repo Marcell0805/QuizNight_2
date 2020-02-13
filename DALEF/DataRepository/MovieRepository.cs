@@ -3,7 +3,6 @@ using Quiz.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace DALEF.DataRepository
 {
@@ -13,7 +12,7 @@ namespace DALEF.DataRepository
         private const string fileLocation = @"..\DALEF\data.xml";
         public int Add(movieQuizQuiz entity)
         {
-            entity.Id = 1;
+            //entity.Id = entity.;
             //entity.Id = Guid.NewGuid().ToString();
             var movieQuiz = xmlToClass.FromXml<movieQuiz>(fileLocation);
 

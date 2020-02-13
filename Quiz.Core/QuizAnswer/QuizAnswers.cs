@@ -1,7 +1,4 @@
 ﻿using Quiz.Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Quiz.Core
 {

@@ -1,8 +1,5 @@
-﻿using DALEF.DataRepository;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Quiz.Data;
-using System.Linq;
 
 namespace QuizNight
 {

@@ -8,11 +8,11 @@ namespace Quiz.Core
     {
         public List<QuizAnswers> QuizAnswerses;
 
-        
+
 
         public InMemoryAnswers()
         {
-            QuizAnswerses= new List<QuizAnswers>()
+            QuizAnswerses = new List<QuizAnswers>()
             {
                  new QuizAnswers{QuestionId = 1,Id = 1,Answer1 = "Jeff",Answer2 = "Altair",Answer3 = "Etzio",Answer4 = "Susan",CorrectAns = 2},
                  new QuizAnswers{QuestionId = 2,Id = 2,Answer1 = "Doom Slayer",Answer2 = "Doom Guy",Answer3 = "Doom Doom",Answer4 = "Dom",CorrectAns = 1},
@@ -47,8 +47,8 @@ namespace Quiz.Core
         public IEnumerable<QuizAnswers> GetAll()
         {
             return from r in QuizAnswerses
-                       orderby r.QuestionId
-                       select r;
+                   orderby r.QuestionId
+                   select r;
         }
 
         public int GetCount(int startNum, int endNum)
@@ -61,7 +61,7 @@ namespace Quiz.Core
 
         public QuizAnswers FindById(int Id)
         {
-            var quizAns=QuizAnswerses.FirstOrDefault(t => t.Id == Id);
+            var quizAns = QuizAnswerses.FirstOrDefault(t => t.Id == Id);
 
             return quizAns;
 

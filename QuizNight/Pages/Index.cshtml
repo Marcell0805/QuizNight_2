@@ -5,6 +5,13 @@
 }
 <h1>Quize Night</h1>
 <h2>Categories</h2>
+<a asp-page="Index" asp-page-handler="ShowResult" class="btn btn-primary">My Score</a>
+@if (Model.Score !=null )
+{
+    <div class="alert alert-success">
+        @Model.Score
+    </div>
+}
 <form method="post" style="width:1200px;height:80px">
     <div class="form-group">
         <div class="input-group" style="align-content:center">
@@ -31,7 +38,7 @@
         break;
     }
 }
-<form asp-page-handler="Answer" style="background-color:#769efe;width:1200px">
+<form method="post" style="background-color:#769efe;width:1200px">
     <div class="form-group">
         <div class="input-group">
             @if (Model.Quizes != null || Model.movieQuizList != null)
@@ -106,14 +113,27 @@
                                 </tr>
                                 foreach (var answer in @item.answers)
                                 {
-                                    <tr>
-                                        <td>
-                                            <button value="@answer.id"
-                                                    name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
+                                    if (!string.IsNullOrEmpty(answer.Text))
+                                    {
+                                        <tr>
+                                            <td>
+                                                <button value="@answer.id"
+                                                        name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px" class="btn btn-default btn-sm">
+                                                    @answer.Text
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        @*<tr>
+                                            <td>
                                                 @answer.Text
-                                            </button>
-                                        </td>
-                                    </tr>
+                                                <input type="checkbox" value="@answer.id"
+                                                       name="Answer" style="width:200px; padding:5px 5px 5px; margin: 2px 2px 2px 2px">
+                                                </input>
+                                            </td>
+                                        </tr>*@
+                                        
+                                        
+                                    }
                                 }
                             }
                         }
@@ -126,17 +146,6 @@
     </div>
 </form>
 
-<h6 style="display:block;font-size:.67em;font-weight:bold">Admin Section</h6>
-<form method="get" style="width:1200px">
-    <div class="form-group">
-        <div class="input-group" style="align-content:center">
-            <button value="" style="float:initial;width:110px;
-                padding: 1px 1px 1px; margin: 1px 1px 1px 0px " class="btn btn-primary btn-warning btn-sm"
-                    name="IsAdmin">
-                Manage Questions
-            </button>
-        </div>
-    </div>
-</form>
+<a class="btn btn-warning" style="margin:10px 10px 0px 0px " asp-page="Index" asp-page-handler="Logout"> Manage Questions</a>
 
 

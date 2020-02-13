@@ -1,20 +1,17 @@
-﻿using System;
+﻿using Quiz.Core;
+using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
-using System.Xml;
-using System.Xml.XPath;
-using Quiz.Core;
 
 namespace Quiz.Data
 {
-    public class InMemoryQuizes: IRepository<QuizClass>
+    public class InMemoryQuizes : IRepository<QuizClass>
     {
         private List<QuizClass> quizes;
         private List<QuizAnswers> quizesAnswers;
-        public  InMemoryQuizes()
+        public InMemoryQuizes()
         {
-           
+
             quizes = new List<QuizClass>()
             {
                 new QuizClass{Id = 1,CatId=1,Question = "What is the name of the first assasin in the assasins franchise?",QuestionAnswer = 2},

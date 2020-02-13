@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Quiz.Data.Interfaces
+﻿namespace Quiz.Data.Interfaces
 {
     public interface IEntity
-    {        
-        int Id { get; set; }        
+    {
+        int Id { get; set; }
     }
 }

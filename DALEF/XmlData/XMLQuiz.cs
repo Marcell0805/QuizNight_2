@@ -1,8 +1,5 @@
 ﻿
 using Quiz.Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Quiz.Data
 {
@@ -108,7 +105,7 @@ namespace Quiz.Data
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.Xml.Serialization.XmlIgnore()]
         public int id
         {
             get

@@ -1,18 +1,26 @@
 ﻿using Quiz.Data.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel.DataAnnotations;
 
 namespace Quiz.Core
 {
-    public partial class XmlClass : IEntity
+    public class XmlClass : IEntity
     {
+        [Key]
+        [Required]
         public int Id { get; set; }
+        [Required, StringLength(50)]
+        public string QuizName { get; set; }
+        [Required, StringLength(50)]
         public string Question { get; set; }
+        [Required, StringLength(50)]
         public string Answer1 { get; set; }
+        [Required, StringLength(50)]
         public string Answer2 { get; set; }
+        [Required, StringLength(50)]
         public string Answer3 { get; set; }
         public string Answer4 { get; set; }
-        
+        [Required]
+        public int CorrectAnswer { get; set; }
+
     }
 }

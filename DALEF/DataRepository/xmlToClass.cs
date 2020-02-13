@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Xml.Serialization;
 
 namespace DALEF.DataRepository
@@ -25,7 +23,7 @@ namespace DALEF.DataRepository
                         returnedXmlClass =
                             (T)new XmlSerializer(typeof(T)).Deserialize(reader);
                     }
-                    catch (InvalidOperationException)
+                    catch (InvalidOperationException ex)
                     {
                         // String passed is not XML, simply return defaultXmlClass
                     }
@@ -53,7 +51,7 @@ namespace DALEF.DataRepository
             XmlSerializer writer = new XmlSerializer(instance.GetType());
 
             //throw new Exception("Change file location");
-            var path = @"C:\vsprojects\xmlTest\xmlRepository\data.xml";
+            var path = @"..\DALEF\data2.xml";
             using (FileStream file = File.Create(path))
             {
                 writer.Serialize(file, instance);

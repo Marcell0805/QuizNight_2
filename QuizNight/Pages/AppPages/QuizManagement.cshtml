@@ -4,5 +4,68 @@
     ViewData["Title"] = "QuizManagement";
 }
 
-<h2>QuizManagement</h2>
+<h2>Quiz Management</h2>
+@if (Model.Error != null)
+{
+    <div class="alert alert-warning">
+        @Model.Error
+    </div>
+}
+<form style="background-color:#769efe;width:1200px" method="post">
+    <div class="form-group">
+        <input type="hidden" asp-for="MovieModel.Id" />
+        <div class="form-group">
+            <label asp-for="MovieModel.QuizName"></label>
+            <input asp-for="MovieModel.QuizName" class="form-control" />
+
+            <span class="text-danger" asp-validation-for="MovieModel.QuizName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MovieModel.Question"></label>
+            <input asp-for="MovieModel.Question" class="form-control" />
+            <span class="text-danger" asp-validation-for="MovieModel.Question"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MovieModel.Answer1"></label>
+            <input asp-for="MovieModel.Answer1" class="form-control" />
+            <p>
+                This is the answer:
+                <input type="checkbox" asp-for="@Model.CorrectNumber[0]" value=true />
+            </p>
+            <span class="text-danger" asp-validation-for="MovieModel.Answer1"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MovieModel.Answer2"></label>
+            <input asp-for="MovieModel.Answer2" class="form-control" />
+            <p>
+                This is the answer:
+                <input type="checkbox" asp-for="@Model.CorrectNumber[1]" value=true />
+            </p>
+            <span class="text-danger" asp-validation-for="MovieModel.Answer2"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MovieModel.Answer3"></label>
+            <input asp-for="MovieModel.Answer3" class="form-control" />
+            <p>
+                This is the answer:
+                <input type="checkbox" asp-for="@Model.CorrectNumber[2]" value=true />
+            </p>
+            <span class="text-danger" asp-validation-for="MovieModel.Answer3"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MovieModel.Answer4"></label>
+            <input asp-for="MovieModel.Answer4" class="form-control" />
+            <p>
+                This is the answer:
+                <input type="checkbox" asp-for="@Model.CorrectNumber[3]" value=true />
+            </p>
+        </div>
+
+        <div class="form-group" style="background-color:#ffffff;text-align:center;padding-top:10px">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+
+</form>
+
 

@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Quiz.Core;
 
 namespace Quiz.Data
 {
-    public class QuizNightDbContext: DbContext
+    public class QuizNightDbContext : DbContext
     {
-        public QuizNightDbContext(DbContextOptions<QuizNightDbContext>options)
-        :base(options)
+        public QuizNightDbContext(DbContextOptions<QuizNightDbContext> options)
+        : base(options)
         {
-            
+
         }
         public DbSet<QuizClass> QuizClasses { get; set; }
-        public DbSet<QuizAnswers> QuizAnswerses{ get; set; }
+        public DbSet<QuizAnswers> QuizAnswerses { get; set; }
         public DbSet<CategoryClass> CategoryClasses { get; set; }
     }
 }
