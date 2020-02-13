@@ -136,5 +136,10 @@ namespace QuizNight.Pages.Quizes
             TempData["Score"] = "Your score is " + "" + AnswerCount + " !";
             return RedirectToPage("/Index");
         }
+
+        public IActionResult OnGetManage()
+        {
+            return RedirectToPage(@"./AppPages/QuizManagement");
+        }
     }
 }

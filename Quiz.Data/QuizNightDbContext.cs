@@ -13,5 +13,6 @@ namespace Quiz.Data
         public DbSet<QuizClass> QuizClasses { get; set; }
         public DbSet<QuizAnswers> QuizAnswerses { get; set; }
         public DbSet<CategoryClass> CategoryClasses { get; set; }
+        public DbSet<XmlClass> XmlClasses { get; set; }
     }
 }
