@@ -31,14 +31,14 @@
         break;
     }
 }
-<form method="post" style="background-color:#769efe;width:1200px">
+<form asp-page-handler="Answer" style="background-color:#769efe;width:1200px">
     <div class="form-group">
         <div class="input-group">
-            @if (Model.Quizes != null ||Model.movieQuizList!=null)
+            @if (Model.Quizes != null || Model.movieQuizList != null)
             {
                 <h2>Questions</h2>
                 <table class="table table" style="background-color:#cdf9ff;width:1200px">
-                    @if (Model.Quizes != null)
+                    @if (Model.Quizes != null && Model.movieQuizList == null)
                     {
 
                         @if (Model.ListCount > 0)

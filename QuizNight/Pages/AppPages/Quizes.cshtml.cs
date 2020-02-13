@@ -13,28 +13,29 @@ namespace QuizNight.Pages.Quizes
 {
     public class QuizesModel : PageModel
     {
-        private readonly IConfiguration config;
+        private readonly IConfiguration Config;
+        //Quiz Lists
         public List<QuizClass> Quizes { get; set; }
-        public List<QuizAnswers> QuizAnswers { get; set; }
-        public IEnumerable<QuizAnswers> QuizAnsDetail { get; set; }
-        public IEnumerable<CategoryClass> categoryClasses{ get; set; }
+        public List<QuizAnswers> QuizAnswers { get; set; }        
         public List<QuizAnswers> QuizAnswersList { get; set; }
         public List<CategoryClass> CatList { get; set; }
-
-        public int ListCount;
-        public IEnumerable<movieQuizQuiz> movieQuizList { get; set; }
-        public int CatSelectedId { get; set; }
+        //Quiz IEnums
+        public IEnumerable<CategoryClass> categoryClasses { get; set; }
+        public IEnumerable<movieQuizQuiz> movieQuizList { get; set; }        
         public IRepository<QuizClass> Repository { get; }
         public IRepository<CategoryClass> RepositoryCatagory { get; }
         public IRepository<QuizAnswers> RepositoryAnswers { get; }
         public IRepository<movieQuizQuiz> Movies { get; }
 
+        //Quiz page properties
+        public int ListCount;
+        public int CatSelectedId { get; set; }
         public int AnswerCount;
 
         public QuizesModel(IConfiguration config,IRepository<QuizClass> repositoryQuiz, IRepository<CategoryClass> repositoryCatagory
             , IRepository<QuizAnswers> repositoryAnswers, IRepository<movieQuizQuiz> movies)
         {
-            this.config = config;
+            Config = config;
             Repository = repositoryQuiz;
             RepositoryCatagory = repositoryCatagory;
             RepositoryAnswers = repositoryAnswers;
@@ -44,27 +45,25 @@ namespace QuizNight.Pages.Quizes
         } 
         public void OnGet()
         {
-            categoryClasses = RepositoryCatagory.GetAll();
-            CatList.AddRange(categoryClasses);
+            SetCatList();            
         }
         public void OnPost(int Id, string answer="")
         {
-            categoryClasses = RepositoryCatagory.GetAll();
+            SetCatList();
             Quizes = Repository.GetAll().ToList();
             QuizAnswers = RepositoryAnswers.GetAll().ToList();
             if (!string.IsNullOrEmpty(answer))
             {                
                 String[] Answer = answer.Split(";");
                 CatSelectedId = GetCatList(int.Parse(Answer[1]));
-                var a = Repository.FindById(CatSelectedId);
+                SetQuizList(CatSelectedId);                
                 foreach (var answerChosen in QuizAnswers)
                 {
                     if (answerChosen.CorrectAns ==int.Parse(Answer[0]))
                     {
                         AnswerCount++;
                     }
-                }
-                SetQuizList(Id);
+                }                
             }
             else
             {
@@ -77,8 +76,11 @@ namespace QuizNight.Pages.Quizes
                     movieQuizList = Movies.GetAll();
                 }
             }
+        }
+        private void SetCatList()
+        {
+            categoryClasses = RepositoryCatagory.GetAll();
             CatList.AddRange(categoryClasses);
-
         }
 
         private void SetQuizList(int Id)
@@ -88,7 +90,7 @@ namespace QuizNight.Pages.Quizes
             foreach (var item in Quizes)
             {
                 QuizAnswers = RepositoryAnswers.GetAll().ToList();
-                var s = QuizAnswers.Where(p => p.QuestionId == item.Id);
+                var s = QuizAnswers.Where(p => p.Id == item.Id);
                 QuizAnswersList.AddRange(s);
             }
         }
