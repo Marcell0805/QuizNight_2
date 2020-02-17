@@ -1,0 +1,39 @@
+﻿@page
+@model QuizNight.XmlDataResultModel
+@{
+    ViewData["Title"] = "XmlDataResult";
+}
+
+<h2>XmlDataResult</h2>
+<div class="form-group">
+    <div class="input-group" style="align-content:center">
+        @foreach (var cat in Model.movieQuizList)
+        {
+        <table>
+
+            <tr>Question
+                <br />
+                    @foreach (var item in cat.questions)
+                    {
+                        <tr>
+                            @item.Text
+                        </tr>
+                        <br />
+                        foreach (var answer in  @item.answers)
+                        {
+                            <tr>
+                                @answer.Text
+                                <br />
+                            </tr>
+                        }
+                    }
+            </tr>
+        </table>
+            
+
+        }
+
+
+    </div>
+</div>
+

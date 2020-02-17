@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿
+using Quiz.Data.Interfaces;
 
-namespace Quiz.Core
+namespace Quiz.Data
 {
-    public class XMLQuiz
-    {
-
-    }
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
     public partial class movieQuiz
@@ -32,12 +27,12 @@ namespace Quiz.Core
 
     /// <remarks/>
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class movieQuizQuiz
+    public partial class movieQuizQuiz : IEntity
     {
 
         private movieQuizQuizQuestion[] questionsField;
 
-        private string idField;
+        private int idField;
 
         private string nameField;
 
@@ -57,7 +52,7 @@ namespace Quiz.Core
 
         /// <remarks/>
         [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string Id
+        public int Id
         {
             get
             {
@@ -91,7 +86,7 @@ namespace Quiz.Core
 
         private movieQuizQuizQuestionAnswer[] answersField;
 
-        private string idField;
+        private int idField;
 
         private string textField;
 
@@ -110,8 +105,8 @@ namespace Quiz.Core
         }
 
         /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        public string id
+        [System.Xml.Serialization.XmlIgnore()]
+        public int id
         {
             get
             {

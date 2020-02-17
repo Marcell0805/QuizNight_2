@@ -5,7 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DALEF\DALEF.csproj" />
+    <Compile Remove="Interfaces\IQuizAnswer.cs" />
+    <Compile Remove="Interfaces\IQuizCategories.cs" />
+    <Compile Remove="Interfaces\IQuizData.cs" />
   </ItemGroup>
 
 </Project>

@@ -1,14 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
-using Quiz.Core;
-using SimpleRepositoryFrameWork.Interfaces;
 
 namespace QuizNight
 {
@@ -16,13 +7,10 @@ namespace QuizNight
     {
         public static void Main(string[] args)
         {
+            //IRepository<movieQuizQuiz> s = new MovieRepository();
+
+            //var all = s.GetAll.ToList();
             CreateWebHostBuilder(args).Build().Run();
-            /*IRepository<movieQuizQuiz> s = new MovieXmlRepository();
-
-            var all = s.List.ToList();
-            var updater = all[0];
-
-            s.Delete(updater);*/
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
